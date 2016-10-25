@@ -1,0 +1,2 @@
+# Remember to update the location of the script
+* * * * * /home/pi/cron/check_eth0.sh >> /var/log/cron/check_eth0.log 2>&1
