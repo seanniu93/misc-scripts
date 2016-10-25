@@ -1,2 +1,0 @@
-# Remember to change the location of the script
-0 * * * * /home/pi/cron/upload_ip/upload_ip.sh >> /dev/null 2>&1

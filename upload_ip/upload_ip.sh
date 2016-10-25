@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
-
+#
 # This is a cron script that uploads the public IP address of the host to
 # Dropbox.
 #
-# DEPENDENCIES:
-#   - https://github.com/andreafabrizi/Dropbox-Uploader
+# Dependencies:
+#  - https://github.com/andreafabrizi/Dropbox-Uploader
+#
+# Example crontab entry:
+# 0 * * * * /home/pi/cron/upload_ip/upload_ip.sh >> /dev/null 2>&1
 
 set -euo pipefail
 
 # Only run script we can connect to IP service
-ping -q -w 10 -c 1 v4.ifconfig.co > /dev/null 2>&1
+IP_SERVICE="v4.ifconfig.co"
+ping -q -w 10 -c 1 $IP_SERVICE > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     exit 1
 fi
@@ -21,7 +25,7 @@ if [ ! -f $CURRENT_IP_FILE ]; then
     touch $CURRENT_IP_FILE
 fi
 
-MY_IP=$(curl -s v4.ifconfig.co)
+MY_IP=$(curl -s $IP_SERVICE)
 LAST_IP=$(<$CURRENT_IP_FILE)
 
 echo "My IP is: $MY_IP"
