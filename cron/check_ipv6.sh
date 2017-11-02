@@ -4,6 +4,7 @@
 # which will reconfigure pihole if the IPv6 address (GUA) changes.
 #
 # Example crontab entry:
+# Every hour: check if IPv6 has changed and reconfigure Pi-Hole
 # 0 * * * * /home/pi/cron/check_ipv6.sh >> /dev/null 2>&1
 
 NEW_IPV6_ADDRESS=$(ip -6 address | grep 'scope global' | awk -F " " '{gsub("/[0-9]*",""); print $2}')

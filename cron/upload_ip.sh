@@ -7,6 +7,7 @@
 #  - https://github.com/andreafabrizi/Dropbox-Uploader
 #
 # Example crontab entry:
+# Every hour: check if IPv4 has changed and upload to Dropbox
 # 0 * * * * /home/pi/cron/upload_ip/upload_ip.sh >> /dev/null 2>&1
 
 set -euo pipefail

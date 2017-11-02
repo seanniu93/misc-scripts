@@ -5,6 +5,7 @@
 # the dhcpcd service.
 #
 # Example crontab entry:
+# Every minute: check if connected to LAN
 # * * * * * /home/pi/cron/check_eth0.sh >> /var/log/cron/check_eth0.log 2>&1
 
 DEFAULT_GATEWAY='10.0.1.1'
